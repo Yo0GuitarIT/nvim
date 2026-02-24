@@ -1,0 +1,21 @@
+# StyLua 配置文件
+# 文檔：https://github.com/JohnnyMorganz/StyLua
+
+# 縮排設定
+indent_type = "Spaces"
+indent_width = 2
+
+# 行寬限制
+column_width = 120
+
+# 換行設定
+line_endings = "Unix"
+
+# 引號風格
+quote_style = "AutoPreferDouble"
+
+# 呼叫括號風格
+call_parentheses = "Always"
+
+# 折疊設定（控制多個語句是否保持在同一行）
+collapse_simple_statement = "Never"
