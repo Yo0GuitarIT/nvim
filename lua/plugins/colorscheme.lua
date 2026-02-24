@@ -11,7 +11,7 @@ return {
       keywordStyle = { italic = true },
       statementStyle = { bold = true },
       typeStyle = {},
-      transparent = false, -- 不設定背景色（true 則透明背景）
+      transparent = true, -- 不設定背景色（true 則透明背景）
       dimInactive = false, -- 暗化非作用中視窗
       terminalColors = true, -- 定義 vim.g.terminal_color_{0,17}
       colors = {
