@@ -52,6 +52,18 @@ return {
       { "<leader>sn", group = "Noice" },
       { "<leader>t", group = "Toggle/Terminal" },
       { "<leader>w", group = "Window" },
+      -- Fold (nvim-ufo)
+      { "z",  group = "Fold" },
+      { "zR", desc = "Open all folds" },
+      { "zM", desc = "Close all folds" },
+      { "zr", desc = "Open folds except kinds" },
+      { "zm", desc = "Close folds with level" },
+      { "za", desc = "Toggle fold" },
+      { "zo", desc = "Open fold" },
+      { "zc", desc = "Close fold" },
+      { "zO", desc = "Open fold recursively" },
+      { "zC", desc = "Close fold recursively" },
+      { "K",  desc = "Peek fold / Hover" },
     })
   end,
 }
