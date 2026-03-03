@@ -4,7 +4,26 @@ vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 -- Buffer navigation
 vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
+
+-- 關閉 buffer 時跳過 NvimTree，避免直接顯示 file explorer
+local function smart_bdelete()
+  local cur_buf = vim.api.nvim_get_current_buf()
+  local bufs = vim.tbl_filter(function(b)
+    return vim.api.nvim_buf_is_valid(b)
+      and vim.bo[b].buflisted
+      and vim.bo[b].filetype ~= "NvimTree"
+      and b ~= cur_buf
+  end, vim.api.nvim_list_bufs())
+
+  if #bufs > 0 then
+    vim.api.nvim_set_current_buf(bufs[#bufs])
+  else
+    vim.cmd("enew") -- 沒有其他 buffer 時開一個空白 buffer
+  end
+  vim.api.nvim_buf_delete(cur_buf, { force = false })
+end
+
+vim.keymap.set("n", "<leader>bd", smart_bdelete, { silent = true, desc = "Delete buffer (skip NvimTree)" })
 
 -- NvimTree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
