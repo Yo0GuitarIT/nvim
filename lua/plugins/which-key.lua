@@ -53,7 +53,7 @@ return {
       { "<leader>t", group = "Toggle/Terminal" },
       { "<leader>w", group = "Window" },
       -- Fold (nvim-ufo)
-      { "z",  group = "Fold" },
+      { "z", group = "Fold" },
       { "zR", desc = "Open all folds" },
       { "zM", desc = "Close all folds" },
       { "zr", desc = "Open folds except kinds" },
@@ -63,7 +63,7 @@ return {
       { "zc", desc = "Close fold" },
       { "zO", desc = "Open fold recursively" },
       { "zC", desc = "Close fold recursively" },
-      { "K",  desc = "Peek fold / Hover" },
+      { "K", desc = "Peek fold / Hover" },
     })
   end,
 }

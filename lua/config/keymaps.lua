@@ -9,10 +9,7 @@ vim.keymap.set("n", "H", ":bprevious<CR>", { silent = true })
 local function smart_bdelete()
   local cur_buf = vim.api.nvim_get_current_buf()
   local bufs = vim.tbl_filter(function(b)
-    return vim.api.nvim_buf_is_valid(b)
-      and vim.bo[b].buflisted
-      and vim.bo[b].filetype ~= "NvimTree"
-      and b ~= cur_buf
+    return vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted and vim.bo[b].filetype ~= "NvimTree" and b ~= cur_buf
   end, vim.api.nvim_list_bufs())
 
   if #bufs > 0 then

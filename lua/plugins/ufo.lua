@@ -3,11 +3,11 @@ return {
   dependencies = { "kevinhwang91/promise-async" },
   event = "BufReadPost",
   opts = {
-    -- Use treesitter as main provider, indent as fallback
+    -- 使用 treesitter 作為主要提供者，indent 作為備用
     provider_selector = function(_bufnr, _filetype, _buftype)
       return { "treesitter", "indent" }
     end,
-    -- Show folded line count suffix
+    -- 顯示折疊行數後綴
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = ("  %d lines"):format(endLnum - lnum)
@@ -36,16 +36,44 @@ return {
     end,
   },
   init = function()
+    -- 設置折疊級別為 99，確保所有折疊都展開
     vim.opt.foldlevel = 99
+    -- 設置折疊級別起始值為 99，確保新打開的文件也展開所有折疊
     vim.opt.foldlevelstart = 99
+    -- 啟用折疊功能
     vim.opt.foldenable = true
-    vim.opt.foldcolumn = "1"
+    -- 隱藏折疊列
+    vim.opt.foldcolumn = "0"
   end,
   keys = {
-    { "zR", function() require("ufo").openAllFolds() end,           desc = "Open all folds" },
-    { "zM", function() require("ufo").closeAllFolds() end,          desc = "Close all folds" },
-    { "zr", function() require("ufo").openFoldsExceptKinds() end,   desc = "Open folds except kinds" },
-    { "zm", function() require("ufo").closeFoldsWith() end,         desc = "Close folds with level" },
+    {
+      "zR",
+      function()
+        require("ufo").openAllFolds()
+      end,
+      desc = "Open all folds",
+    },
+    {
+      "zM",
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      desc = "Close all folds",
+    },
+    {
+      "zr",
+      function()
+        require("ufo").openFoldsExceptKinds()
+      end,
+      desc = "Open folds except kinds",
+    },
+    {
+      "zm",
+      function()
+        require("ufo").closeFoldsWith()
+      end,
+      desc = "Close folds with level",
+    },
     {
       "K",
       function()
@@ -58,4 +86,3 @@ return {
     },
   },
 }
-
