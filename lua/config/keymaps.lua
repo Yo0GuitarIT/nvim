@@ -87,3 +87,6 @@ vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { silent = true, desc = "Go to
 
 -- Clear search highlight
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
+
+-- Lazygit floating window
+require("config.lazygit")
