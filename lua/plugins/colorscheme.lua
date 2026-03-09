@@ -1,20 +1,13 @@
 return {
-  "EdenEast/nightfox.nvim",
+  "shaunsingh/nord.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("nightfox").setup({
-      options = {
-        transparent = true, -- 透明背景
-        terminal_colors = true,
-        dim_inactive = false,
-        styles = {
-          comments = "italic",
-          keywords = "italic",
-          statements = "bold",
-        },
-      },
-    })
-    vim.cmd("colorscheme terafox")
+    vim.g.nord_disable_background = true -- Transparent background
+    vim.g.nord_italic = true
+    vim.g.nord_bold = true
+    vim.g.nord_contrast = true
+    vim.g.nord_borders = true
+    require("nord").set()
   end,
 }
