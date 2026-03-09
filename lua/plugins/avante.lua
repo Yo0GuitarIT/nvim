@@ -43,7 +43,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "zbirenbaum/copilot.lua",
-      "nvim-tree/nvim-web-devicons",
+      "nvim-mini/mini.nvim",
       {
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
@@ -55,13 +55,6 @@ return {
             use_absolute_path = true,
           },
         },
-      },
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
       },
     },
   },
