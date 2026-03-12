@@ -46,31 +46,31 @@ return {
             builtin.lsp_definitions({ reuse_win = true })
           end, vim.tbl_extend("force", opts, { desc = "Goto Definition" }))
 
-          -- Go to declaration
-          vim.keymap.set(
-            "n",
-            "gD",
-            vim.lsp.buf.declaration,
-            vim.tbl_extend("force", opts, { desc = "Goto Declaration" })
-          )
-
-          -- Go to implementation (使用 Telescope)
-          vim.keymap.set("n", "gI", function()
+          -- Go to implementation (使用 Telescope，對齊 0.11 的 gri)
+          vim.keymap.set("n", "gri", function()
             builtin.lsp_implementations({ reuse_win = true })
           end, vim.tbl_extend("force", opts, { desc = "Goto Implementation" }))
 
-          -- Go to type definition (使用 Telescope)
-          vim.keymap.set("n", "gy", function()
+          -- Go to type definition (使用 Telescope，對齊 0.11 的 grt 習慣)
+          vim.keymap.set("n", "grt", function()
             builtin.lsp_type_definitions({ reuse_win = true })
           end, vim.tbl_extend("force", opts, { desc = "Goto Type Definition" }))
 
-          -- Show references (使用 Telescope)
-          vim.keymap.set("n", "gr", function()
+          -- Show references (使用 Telescope，改為 grr 避免與 0.11 其他 gr 鍵位延遲衝突)
+          vim.keymap.set("n", "grr", function()
             builtin.lsp_references()
-          end, vim.tbl_extend("force", opts, { desc = "References", nowait = true }))
+          end, vim.tbl_extend("force", opts, { desc = "References" }))
 
-          -- Hover documentation
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover" }))
+          -- Rename symbol (保留 leader 習慣，但 grn 也會生效)
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
+
+          -- Code action (保留 leader 習慣，但 gra 也會生效)
+          vim.keymap.set(
+            "n",
+            "<leader>ca",
+            vim.lsp.buf.code_action,
+            vim.tbl_extend("force", opts, { desc = "Code Action" })
+          )
 
           -- Signature help
           vim.keymap.set(
@@ -78,17 +78,6 @@ return {
             "gK",
             vim.lsp.buf.signature_help,
             vim.tbl_extend("force", opts, { desc = "Signature Help" })
-          )
-
-          -- Rename symbol
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
-
-          -- Code action
-          vim.keymap.set(
-            "n",
-            "<leader>ca",
-            vim.lsp.buf.code_action,
-            vim.tbl_extend("force", opts, { desc = "Code Action" })
           )
 
           -- Document symbols (額外功能)
