@@ -42,8 +42,7 @@ return {
     -- 註冊快捷鍵組別說明
     wk.add({
       { "<leader>b", group = "Buffer" },
-      { "<leader>c", group = "Code/Copilot" },
-      { "<leader>ct", desc = "Toggle Copilot" },
+      { "<leader>c", group = "Code" },
       { "<leader>d", group = "Document" },
       { "<leader>f", group = "Find (Telescope)" },
       { "<leader>g", group = "Git (Fugitive)" },

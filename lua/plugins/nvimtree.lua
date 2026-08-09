@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
+  cmd = "NvimTreeToggle",
   config = function()
     require("nvim-tree").setup({
       update_focused_file = {
