@@ -4,7 +4,4 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {
-    file_types = { "markdown" },
-  },
 }
