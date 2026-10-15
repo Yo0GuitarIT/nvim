@@ -1,13 +1,12 @@
 return {
-  "shaunsingh/nord.nvim",
+  "vcraescu/islands-dark.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    vim.g.nord_disable_background = true -- Transparent background
-    vim.g.nord_italic = true
-    vim.g.nord_bold = true
-    vim.g.nord_contrast = true
-    vim.g.nord_borders = true
-    require("nord").set()
+    vim.opt.background = "dark"
+    require("islands-dark").setup({
+      transparent = true,
+    })
+    vim.cmd.colorscheme("islands-dark")
   end,
 }
